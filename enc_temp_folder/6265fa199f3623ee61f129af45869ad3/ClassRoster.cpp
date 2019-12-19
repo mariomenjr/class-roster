@@ -33,18 +33,33 @@ int main()
         int separatorPos = rowData.find(",");
         
         do {
-            // Grabbing the first item from the rowData (up to the appearance of a comma)
             fields.at(vectorPos) = rowData.substr(startingPos, separatorPos);
 
-            // Replace rowData value by "the rest" of the string
             rowData = rowData.substr(++separatorPos);
 
-            // Find new separator
             separatorPos = rowData.find(",");
             vectorPos++;
 
         } while (separatorPos != string::npos);
 
+        /*while (rowData.substr(0 != nullptr) {
+            fields.push_back(strrchr(rowData, ','));
+
+        }*/
+
+        /*const char* studentId = strrchr(rowData, ',');
+        string pos = studentId;
+
+        const char* firstName = strrchr(rowData, ',');
+        string pos2 = firstName;*/
+        // string str(studentId);
+
+        /*while (strchr(current, ',') != nullptr) {
+            
+            fields.push_back()
+        }*/
+
+        const int o = 0;
     }
 
     std::cout << "Hello World!\n";
