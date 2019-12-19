@@ -20,7 +20,7 @@ int main()
         "A5,Mario,Menjivar,mmenjiv@wgu.edu,26,10,10,10,SOFTWARE"       // My own data as last item in Array
     };
 
-    Student *classRosterArray[SIZE_ARRAY];
+    vector<Student*> classRosterArray;
 
     for (int i = 0; i < SIZE_ARRAY; i++)
     {
@@ -45,6 +45,7 @@ int main()
 
         } while (separatorPos != string::npos);
 
+        classRosterArray.push_back(new Student(fields[0],fields[1], fields[2], fields[3], stoi(fields[4])));
     }
 
     std::cout << "Hello World!\n";

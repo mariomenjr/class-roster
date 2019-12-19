@@ -33,3 +33,8 @@ int* Student::GetNumberDaysToCompleteCourse()
 	return nullptr;
 }
 
+Degree Student::GetDegreeProgram()
+{
+	return Degree();
+}
+

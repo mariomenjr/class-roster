@@ -33,7 +33,7 @@ public:
 	int GetAge();
 	int* GetNumberDaysToCompleteCourse();
 	
-	virtual Degree GetDegreeProgram() {};
+	virtual Degree GetDegreeProgram();
 	virtual void Print() {};
 protected:
 	string studentId;
