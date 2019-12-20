@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include "Student.h"
+#include "NetworkStudent.h"
+#include "SecurityStudent.h"
+#include "SoftwareStudent.h"
 #include <vector>
 using namespace std;
 
@@ -30,22 +33,36 @@ int main()
         int vectorPos = 0;
 
         int startingPos = 0;
-        int separatorPos = rowData.find(",");
+        int separatorPos = 0;
         
         do {
+            separatorPos = rowData.find(",");
+
             // Grabbing the first item from the rowData (up to the appearance of a comma)
-            fields.at(vectorPos) = rowData.substr(startingPos, separatorPos);
+            if (separatorPos < 0)
+                fields.at(vectorPos) = rowData;
+            else
+                fields.at(vectorPos) = rowData.substr(startingPos, separatorPos);
 
             // Replace rowData value by "the rest" of the string
-            rowData = rowData.substr(++separatorPos);
+            rowData = rowData.substr(separatorPos + 1);
 
             // Find new separator
-            separatorPos = rowData.find(",");
             vectorPos++;
 
         } while (separatorPos != string::npos);
 
-        classRosterArray.push_back(new Student(fields[0],fields[1], fields[2], fields[3], stoi(fields[4])));
+        string degreeType = fields[8];
+        
+        if (degreeType == "NETWORKING") {
+            classRosterArray.push_back(new NetworkStudent(fields[0], fields[1], fields[2], fields[3], stoi(fields[4])));
+        }
+        else if (degreeType == "SECURITY") {
+            classRosterArray.push_back(new SecurityStudent(fields[0], fields[1], fields[2], fields[3], stoi(fields[4])));
+        }
+        else if (degreeType == "SOFTWARE") {
+            classRosterArray.push_back(new SoftwareStudent(fields[0], fields[1], fields[2], fields[3], stoi(fields[4])));
+        }
     }
 
     std::cout << "Hello World!\n";

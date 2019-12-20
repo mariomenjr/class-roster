@@ -19,7 +19,9 @@ public:
 		lastName, 
 		emailAddress, 
 		age
-	) {};
+	) {
+		this->degreeType = Degree::SOFTWARE;
+	};
 	~SoftwareStudent() {};
 
 	Degree GetDegreeProgram();

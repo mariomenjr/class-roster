@@ -20,7 +20,9 @@ public:
 		lastName,
 		emailAddress,
 		age
-	) {};
+	) {
+		this->degreeType = Degree::SECURITY;
+	};
 	~SecurityStudent() {};
 
 	Degree GetDegreeProgram();

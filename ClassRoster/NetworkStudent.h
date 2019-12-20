@@ -19,7 +19,9 @@ public:
 		lastName,
 		emailAddress,
 		age
-	) {};
+	) {
+		this->degreeType = Degree::NETWORKING;
+	};
 	~NetworkStudent() {};
 
 	Degree GetDegreeProgram();
