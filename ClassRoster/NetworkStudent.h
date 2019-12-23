@@ -12,13 +12,15 @@ public:
 		string firstName,
 		string lastName,
 		string emailAddress,
-		int age
+		int age,
+		int numberDaysToCompleteCourse[]
 	) : Student(
 		studentId,
 		firstName,
 		lastName,
 		emailAddress,
-		age
+		age,
+		numberDaysToCompleteCourse
 	) {
 		this->degreeType = Degree::NETWORK;
 	};

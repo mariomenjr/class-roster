@@ -79,12 +79,13 @@ int main()
             }
         }
 
-        myRoster.Add(fields[0], fields[1], fields[2], fields[3], stoi(fields[4]), studentDegree);
+        myRoster.Add(fields[0], fields[1], fields[2], fields[3], stoi(fields[4]), stoi(fields[5]), stoi(fields[6]), stoi(fields[7]), studentDegree);
     }
 
     // myRoster->Remove("A3");
     myRoster.PrintAll();
     myRoster.PrintInvalidEmails();
+    myRoster.PrintDaysInCourse("A3");
     myRoster.PrintByDegreeProgram((int)Degree::SOFTWARE);
     
     myRoster.Remove("A3");

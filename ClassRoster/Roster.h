@@ -13,7 +13,7 @@ public:
 	Roster() {};
 	~Roster() {};
 
-	void Add(string studentId, string firstName, string lastName, string emailAddress, int age, /*int daysInCourse1, int daysInCourse2, int daysInCourse3,*/ Degree degreeType);
+	void Add(string studentId, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degreeType);
 	void Remove(string studentID);
 
 	void PrintAll();

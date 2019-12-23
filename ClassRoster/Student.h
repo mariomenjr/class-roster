@@ -17,15 +17,15 @@ public:
 		string firstName,
 		string lastName,
 		string emailAddress,
-		int age
-		// int numberDaysToCompleteCourse[]
+		int age,
+		int numberDaysToCompleteCourse[]
 	) :
 		studentId(studentId), 
 		firstName(firstName), 
 		lastName(lastName), 
 		emailAddress(emailAddress), 
-		age(age)
-		// numberDaysToCompleteCourse()
+		age(age),
+		numberDaysToCompleteCourse(numberDaysToCompleteCourse)
 	{}
 	~Student() {};
 
@@ -44,7 +44,7 @@ protected:
 	string lastName;
 	string emailAddress;
 	int age;
-	// int numberDaysToCompleteCourse[3];
+	int* numberDaysToCompleteCourse;
 	Degree degreeType{ Degree::UNASSIGNED };
 };
 

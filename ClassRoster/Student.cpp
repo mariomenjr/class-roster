@@ -27,7 +27,7 @@ int Student::GetAge() {
 }
 
 int* Student::GetNumberDaysToCompleteCourse() {
-	return nullptr;
+	return this->numberDaysToCompleteCourse;
 }
 
 Degree Student::GetDegreeProgram() {

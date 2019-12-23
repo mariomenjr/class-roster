@@ -4,15 +4,17 @@
 #include "SecurityStudent.h"
 #include "SoftwareStudent.h"
 
-void Roster::Add(string studentId, string firstName, string lastName, string emailAddress, int age, /*int daysInCourse1, int daysInCourse2, int daysInCourse3,*/ Degree degreeType) {
+void Roster::Add(string studentId, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degreeType) {
+    int daysInCourse[] = { daysInCourse1, daysInCourse2, daysInCourse3 };
+
     if (degreeType == Degree::NETWORK) {
-        classRosterArray.push_back(new NetworkStudent(studentId, firstName, lastName, emailAddress, age));
+        classRosterArray.push_back(new NetworkStudent(studentId, firstName, lastName, emailAddress, age, daysInCourse));
     }
     else if (degreeType == Degree::SECURITY) {
-        classRosterArray.push_back(new SecurityStudent(studentId, firstName, lastName, emailAddress, age));
+        classRosterArray.push_back(new SecurityStudent(studentId, firstName, lastName, emailAddress, age, daysInCourse));
     }
     else if (degreeType == Degree::SOFTWARE) {
-        classRosterArray.push_back(new SoftwareStudent(studentId, firstName, lastName, emailAddress, age));
+        classRosterArray.push_back(new SoftwareStudent(studentId, firstName, lastName, emailAddress, age, daysInCourse));
     }
 }
 
@@ -43,7 +45,20 @@ void Roster::PrintAll() {
     }
 }
 
-void Roster::PrintDaysInCourse(string studentID) {}
+void Roster::PrintDaysInCourse(string studentID) {
+    
+    std::cout << endl << "## Avg Number Of Days In Courses By Student ##" << endl;
+    int SIZE = classRosterArray.size();
+    for (int i = 0; i < SIZE; i++) {
+        Student* student = classRosterArray.at(i);
+        if (student != nullptr) {
+            int* pointer = student->GetNumberDaysToCompleteCourse();
+            int hola = (*pointer);
+            int a = 0;
+        }
+    }
+    
+}
 
 void Roster::PrintInvalidEmails() {
     std::cout << endl << "## Student with invalid emails ##" << endl;
