@@ -20,7 +20,7 @@ public:
 		emailAddress,
 		age
 	) {
-		this->degreeType = Degree::NETWORKING;
+		this->degreeType = Degree::NETWORK;
 	};
 	~NetworkStudent() {};
 

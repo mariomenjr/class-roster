@@ -2,18 +2,33 @@
 //
 
 #include <iostream>
+#include <vector>
+
+#include "Degree.h"
 #include "Student.h"
 #include "NetworkStudent.h"
 #include "SecurityStudent.h"
 #include "SoftwareStudent.h"
-#include <vector>
+#include "Roster.h"
+
 using namespace std;
+
+void PrintMyInformation() {
+    std::cout << "Scripting and Programming - Applications -- C867" << endl;
+    
+    std::cout << "Language:\t C++" << endl;
+    std::cout << "Student Id:\t 001097072" << endl;
+    std::cout << "Student:\t Mario Menjivar Sermeno" << endl;
+}
 
 int main()
 {
+    PrintMyInformation();
+
     const int SIZE_ARRAY = 5;
     const int SIZE_VECTOR = 9;
 
+    const vector<string> DEGREE_NAMES { "SECURITY", "NETWORK", "SOFTWARE" };
 
     const string studentData[SIZE_ARRAY] = {
         "A1,John,Smith,John1989@gmail.com,20,30,35,40,SECURITY"      ,
@@ -23,7 +38,8 @@ int main()
         "A5,Mario,Menjivar,mmenjiv@wgu.edu,26,10,10,10,SOFTWARE"       // My own data as last item in Array
     };
 
-    vector<Student*> classRosterArray;
+    Roster* rosterInstance = new Roster;
+    Roster myRoster = (*rosterInstance);
 
     for (int i = 0; i < SIZE_ARRAY; i++)
     {
@@ -52,20 +68,27 @@ int main()
 
         } while (separatorPos != string::npos);
 
-        string degreeType = fields[8];
-        
-        if (degreeType == "NETWORKING") {
-            classRosterArray.push_back(new NetworkStudent(fields[0], fields[1], fields[2], fields[3], stoi(fields[4])));
+        Degree studentDegree = Degree::UNASSIGNED;
+
+        for (int i = 0; i < (int)DEGREE_NAMES.size(); i++)
+        {
+            string degree = DEGREE_NAMES[i];
+            if (fields[8] == degree) {
+                studentDegree = (Degree)i;
+                break;
+            }
         }
-        else if (degreeType == "SECURITY") {
-            classRosterArray.push_back(new SecurityStudent(fields[0], fields[1], fields[2], fields[3], stoi(fields[4])));
-        }
-        else if (degreeType == "SOFTWARE") {
-            classRosterArray.push_back(new SoftwareStudent(fields[0], fields[1], fields[2], fields[3], stoi(fields[4])));
-        }
+
+        myRoster.Add(fields[0], fields[1], fields[2], fields[3], stoi(fields[4]), studentDegree);
     }
 
-    std::cout << "Hello World!\n";
+    // myRoster->Remove("A3");
+    myRoster.PrintAll();
+    myRoster.PrintInvalidEmails();
+    myRoster.PrintByDegreeProgram((int)Degree::SOFTWARE);
+    
+    myRoster.Remove("A3");
+    myRoster.Remove("A3");
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

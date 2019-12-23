@@ -2,8 +2,11 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
+#include <iostream>
 #include <string>
+
 #include "Degree.h"
+
 using namespace std;
 
 class Student
@@ -34,7 +37,7 @@ public:
 	int* GetNumberDaysToCompleteCourse();
 	
 	virtual Degree GetDegreeProgram();
-	virtual void Print() {};
+	virtual void Print();
 protected:
 	string studentId;
 	string firstName;
@@ -42,7 +45,7 @@ protected:
 	string emailAddress;
 	int age;
 	// int numberDaysToCompleteCourse[3];
-	Degree degreeType{ Degree::SECURITY };
+	Degree degreeType{ Degree::UNASSIGNED };
 };
 
 #endif

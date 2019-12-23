@@ -2,6 +2,6 @@
 #ifndef DEGREE_H
 #define DEGREE_H
 
-enum class Degree { SECURITY, NETWORKING, SOFTWARE };
+enum class Degree { UNASSIGNED = -1, SECURITY, NETWORK, SOFTWARE };
 
 #endif

@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #ifndef SECURITYSTUDENT_H
 #define SECURITYSTUDENT_H
 
