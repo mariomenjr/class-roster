@@ -9,6 +9,8 @@
 
 using namespace std;
 
+const int NUM_COURSES = 3;
+
 class Student
 {
 public:
@@ -18,15 +20,17 @@ public:
 		string lastName,
 		string emailAddress,
 		int age,
-		int numberDaysToCompleteCourse[]
+		int* numberDaysToCompleteCourse
 	) :
 		studentId(studentId), 
 		firstName(firstName), 
 		lastName(lastName), 
 		emailAddress(emailAddress), 
-		age(age),
-		numberDaysToCompleteCourse(numberDaysToCompleteCourse)
-	{}
+		age(age)
+	{
+		for (size_t i = 0; i < NUM_COURSES; i++)
+			this->numberDaysToCompleteCourse[i] = numberDaysToCompleteCourse[i];
+	}
 	~Student() {};
 
 	string GetStudentId();
@@ -44,7 +48,7 @@ protected:
 	string lastName;
 	string emailAddress;
 	int age;
-	int* numberDaysToCompleteCourse;
+	int numberDaysToCompleteCourse[NUM_COURSES];
 	Degree degreeType{ Degree::UNASSIGNED };
 };
 

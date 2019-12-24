@@ -45,16 +45,23 @@ void Roster::PrintAll() {
     }
 }
 
-void Roster::PrintDaysInCourse(string studentID) {
+void Roster::PrintDaysInCourse(string studentId) {
     
-    std::cout << endl << "## Avg Number Of Days In Courses By Student ##" << endl;
+    std::cout << endl << "## Average number of days by student ##" << endl;
     int SIZE = classRosterArray.size();
     for (int i = 0; i < SIZE; i++) {
         Student* student = classRosterArray.at(i);
         if (student != nullptr) {
-            int* pointer = student->GetNumberDaysToCompleteCourse();
-            int hola = (*pointer);
-            int a = 0;
+            if (student->GetStudentId() == studentId) {
+                int totalSum = 0;
+                int* coursesDays = student->GetNumberDaysToCompleteCourse();
+
+                for (size_t i = 0; i < NUM_COURSES; i++)
+                    totalSum += coursesDays[i];
+
+                double avgDays = totalSum / NUM_COURSES;
+                cout << student->GetFirstName() << " (" << student->GetStudentId() << ")" << " has an average of " << avgDays << " days in the " << NUM_COURSES << " courses." << endl;
+            }
         }
     }
     

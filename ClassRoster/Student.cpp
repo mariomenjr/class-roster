@@ -41,7 +41,11 @@ void Student::Print() {
 	std::cout << "\t First Name: " + this->firstName;
 	std::cout << "\t Last Name: " + this->lastName;
 	std::cout << "\t Age: " + to_string(this->age);
-	// std::cout << "\t First Name: " + this->firstName;	
+	
+	std::cout << "\t Days In Courses: ";
+	for (size_t i = 0; i < NUM_COURSES; i++)
+		std::cout << " " << this->numberDaysToCompleteCourse[i] << " ";
+
 	std::cout << "\t Degree Program: " + degreeName;
 	std::cout << endl;
 }

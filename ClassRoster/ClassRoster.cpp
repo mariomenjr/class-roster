@@ -30,6 +30,7 @@ int main()
 
     const vector<string> DEGREE_NAMES { "SECURITY", "NETWORK", "SOFTWARE" };
 
+    // Raw Data
     const string studentData[SIZE_ARRAY] = {
         "A1,John,Smith,John1989@gmail.com,20,30,35,40,SECURITY"      ,
         "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
@@ -38,6 +39,7 @@ int main()
         "A5,Mario,Menjivar,mmenjiv@wgu.edu,26,10,10,10,SOFTWARE"       // My own data as last item in Array
     };
 
+    // Making the properties to be accessed by a point
     Roster* rosterInstance = new Roster;
     Roster myRoster = (*rosterInstance);
 
@@ -60,8 +62,8 @@ int main()
             else
                 fields.at(vectorPos) = rowData.substr(startingPos, separatorPos);
 
-            // Replace rowData value by "the rest" of the string
-            rowData = rowData.substr(separatorPos + 1);
+            // Replace rowData value by "the rest" of the string 
+            rowData = rowData.substr((int)(separatorPos + 1));
 
             // Find new separator
             vectorPos++;

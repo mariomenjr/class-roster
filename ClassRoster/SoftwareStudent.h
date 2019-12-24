@@ -13,7 +13,7 @@ public:
 		string lastName,
 		string emailAddress,
 		int age,
-		int numberDaysToCompleteCourse[]
+		int* numberDaysToCompleteCourse
 	) : Student(
 		studentId, 
 		firstName, 
