@@ -7,15 +7,12 @@
 void Roster::Add(string studentId, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degreeType) {
     int daysInCourse[] = { daysInCourse1, daysInCourse2, daysInCourse3 };
 
-    if (degreeType == Degree::NETWORK) {
+    if (degreeType == Degree::NETWORK)
         classRosterArray.push_back(new NetworkStudent(studentId, firstName, lastName, emailAddress, age, daysInCourse));
-    }
-    else if (degreeType == Degree::SECURITY) {
+    else if (degreeType == Degree::SECURITY)
         classRosterArray.push_back(new SecurityStudent(studentId, firstName, lastName, emailAddress, age, daysInCourse));
-    }
-    else if (degreeType == Degree::SOFTWARE) {
+    else if (degreeType == Degree::SOFTWARE)
         classRosterArray.push_back(new SoftwareStudent(studentId, firstName, lastName, emailAddress, age, daysInCourse));
-    }
 }
 
 void Roster::Remove(string studentId) {
@@ -25,8 +22,10 @@ void Roster::Remove(string studentId) {
         Student* student = classRosterArray.at(i);
         if (student != nullptr) {
             if (student->GetStudentId() == studentId) {
+                // Removing the students by replacing them with nullptr
                 classRosterArray.at(i) = nullptr;
                 wasRemoved = true;
+
                 break;
             }
         }
@@ -36,18 +35,18 @@ void Roster::Remove(string studentId) {
 
 void Roster::PrintAll() {
     std::cout << endl << "## All student ##" << endl;
+
     int SIZE = classRosterArray.size();
     for (int i = 0; i < SIZE; i++) {
         Student* student = classRosterArray.at(i);
-        if (student != nullptr) {
+        if (student != nullptr)
             this->PrintStudent(classRosterArray.at(i), i);
-        }
     }
 }
 
 void Roster::PrintDaysInCourse(string studentId) {
-    
     std::cout << endl << "## Average number of days by student ##" << endl;
+
     int SIZE = classRosterArray.size();
     for (int i = 0; i < SIZE; i++) {
         Student* student = classRosterArray.at(i);
@@ -73,9 +72,8 @@ void Roster::PrintInvalidEmails() {
     for (int i = 0; i < SIZE; i++) {
         Student* student = classRosterArray.at(i);
         if (student != nullptr) {
-            if (!this->IsEmailAddressValid(student->GetEmailAddress())) {
+            if (!this->IsEmailAddressValid(student->GetEmailAddress()))
                 this->PrintStudent(classRosterArray.at(i), i);
-            }
         }
     }
 }
@@ -87,9 +85,8 @@ void Roster::PrintByDegreeProgram(int degreeProgram) {
         Student* student = classRosterArray.at(i);
         if (student != nullptr) {
             int studentDegree = (int)student->GetDegreeProgram();
-            if (studentDegree == degreeProgram ) {
+            if (studentDegree == degreeProgram )
                 this->PrintStudent(classRosterArray.at(i), i);
-            }
         }
     }
 }

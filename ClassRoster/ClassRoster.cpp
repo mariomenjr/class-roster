@@ -70,26 +70,27 @@ int main()
 
         } while (separatorPos != string::npos);
 
+        // Assign the correct degreeType from the string in the Raw Data
         Degree studentDegree = Degree::UNASSIGNED;
-
         for (int i = 0; i < (int)DEGREE_NAMES.size(); i++)
         {
             string degree = DEGREE_NAMES[i];
             if (fields[8] == degree) {
                 studentDegree = (Degree)i;
-                break;
+                break; // Once we've found it, we don't need to continue in the loop
             }
         }
 
         myRoster.Add(fields[0], fields[1], fields[2], fields[3], stoi(fields[4]), stoi(fields[5]), stoi(fields[6]), stoi(fields[7]), studentDegree);
     }
 
-    // myRoster->Remove("A3");
+    // Printing results
     myRoster.PrintAll();
     myRoster.PrintInvalidEmails();
     myRoster.PrintDaysInCourse("A3");
     myRoster.PrintByDegreeProgram((int)Degree::SOFTWARE);
     
+    // Removing the same student
     myRoster.Remove("A3");
     myRoster.Remove("A3");
 }
