@@ -93,6 +93,8 @@ int main()
     // Removing the same student
     myRoster.Remove("A3");
     myRoster.Remove("A3");
+
+    delete rosterInstance;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

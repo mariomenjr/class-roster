@@ -31,7 +31,9 @@ public:
 		for (size_t i = 0; i < NUM_COURSES; i++)
 			this->numberDaysToCompleteCourse[i] = numberDaysToCompleteCourse[i];
 	}
-	~Student() {};
+	~Student() {
+		delete this->numberDaysToCompleteCourse;
+	};
 
 	string GetStudentId();
 	string GetFirstName();
