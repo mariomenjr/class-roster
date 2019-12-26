@@ -42,6 +42,14 @@ public:
 	int GetAge();
 	int* GetNumberDaysToCompleteCourse();
 	
+	void SetStudentId(string studentId);
+	void SetFirstName(string firstName);
+	void SetLastName(string lastName);
+	void SetEmailAddress(string emailAddress);
+	void SetAge(int age);
+	void SetNumberDaysToCompleteCourse(int* numberDaysToCompleteCourse);
+	void SetDegreeProgram(Degree degreeType);
+
 	virtual Degree GetDegreeProgram();
 	virtual void Print();
 protected:

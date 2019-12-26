@@ -6,6 +6,8 @@ using namespace std;
 
 const vector<string> DEGREE_NAMES{ "SECURITY", "NETWORK", "SOFTWARE" };
 
+// Accessors
+
 string Student::GetStudentId() {
 	return this->studentId;
 }
@@ -34,13 +36,45 @@ Degree Student::GetDegreeProgram() {
 	return this->degreeType;
 }
 
+// Mutators
+
+void Student::SetStudentId(string studentId) {
+	this->studentId = studentId;
+}
+
+void Student::SetFirstName(string firstName) {
+	this->firstName = firstName;
+}
+
+void Student::SetLastName(string lastName) {
+	this->lastName = lastName;
+}
+
+void Student::SetEmailAddress(string emailAddress) {
+	this->emailAddress = emailAddress;
+}
+
+void Student::SetAge(int age) {
+	this->age = age;
+}
+
+void Student::SetNumberDaysToCompleteCourse(int* numberDaysToCompleteCourse) {
+	// this->numberDaysToCompleteCourse;
+}
+
+void Student::SetDegreeProgram(Degree degreeType) {
+	 this->degreeType = degreeType;
+}
+
+// Actions
+
 void Student::Print() {
-	int degreeType = (int)this->degreeType;
+	int degreeType = (int)this->GetDegreeProgram();
 	string degreeName = ((degreeType >= 0) ? DEGREE_NAMES[degreeType] : "");
 
-	std::cout << "\t First Name: " + this->firstName;
-	std::cout << "\t Last Name: " + this->lastName;
-	std::cout << "\t Age: " + to_string(this->age);
+	std::cout << "\t First Name: " + this->GetFirstName();
+	std::cout << "\t Last Name: " + this->GetLastName();
+	std::cout << "\t Age: " + to_string(this->GetAge());
 	
 	std::cout << "\t Days In Courses: ";
 	for (size_t i = 0; i < NUM_COURSES; i++)
